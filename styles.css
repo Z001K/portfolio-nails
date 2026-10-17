@@ -1,0 +1,607 @@
+/* Core Styling & Frutiger Aero Reset */
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+body, html {
+    height: 100%;
+    width: 100%;
+}
+
+/* Bright, vibrant abstract background typical of Windows 7 era */
+.desktop {
+    background: radial-gradient(circle at 80% 20%, #FFB6FE, #AE92F4, #806EE5);
+    height: calc(100vh - 40px);
+    position: relative;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+}
+
+/* Centered Desktop Branding */
+.desktop-title {
+    position: absolute;
+    top: 35%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    color: rgba(255, 255, 255, 0.75);
+    font-size: 5rem;
+    font-weight: 500;
+    text-shadow: 0px 2px 10px rgba(0, 0, 0, 0.3);
+    user-select: none;
+    pointer-events: none;
+    text-align: center;
+    width: 90%;
+}
+
+/* Icon Grid Organization */
+.icon-grid {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    width: fit-content;
+    z-index: 2;
+}
+
+.desktop-icon {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 90px;
+    text-decoration: none;
+    color: white;
+    text-align: center;
+    padding: 8px;
+    border: 1px solid transparent;
+    border-radius: 4px;
+    transition: all 0.2s ease;
+}
+
+/* Windows Hover & Selection Effect */
+.desktop-icon:hover {
+    background: rgba(255, 255, 255, 0.15);
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    box-shadow: inset 0 0 5px rgba(255, 255, 255, 0.5);
+}
+
+.desktop-icon img {
+    width: 48px;
+    height: 48px;
+    margin-bottom: 5px;
+    filter: drop-shadow(0px 2px 4px rgba(0,0,0,0.4));
+}
+
+.desktop-icon span {
+    font-size: 0.85rem;
+    text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.8);
+    font-weight: 500;
+}
+
+/* Style for the desktop shortcut layout */
+.desktop-icon img {
+    width: 64px; /* Optimal size for desktop grids */
+    height: 64px;
+    margin-bottom: 5px;
+    /* Soft diffuse shadow simulating standard Windows 7 desktop engine */
+    filter: drop-shadow(0px 3px 6px rgba(0, 0, 0, 0.4)) drop-shadow(0px 1px 2px rgba(0, 0, 0, 0.2));
+    transition: transform 0.15s ease;
+}
+
+/* Give the icons a slight interactive bounce when pressed down */
+.desktop-icon:active img {
+    transform: scale(0.95);
+    filter: drop-shadow(0px 1px 2px rgba(0, 0, 0, 0.5));
+}
+
+/* Fix mobile responsive sizing for image assets */
+@media (max-width: 768px) {
+    .desktop-icon img {
+        width: 48px;
+        height: 48px;
+    }
+}
+
+/* Aero Glass Taskbar styling */
+.taskbar {
+    height: 40px;
+    background: #FFE6F6;
+    backdrop-filter: blur(12px) saturate(180%);
+    -webkit-backdrop-filter: blur(12px) saturate(180%);
+    border-top: 1px solid rgba(255, 255, 255, 0.3);
+    box-shadow: 0 -2px 10px rgba(0,0,0,0.15);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 10px;
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+    z-index: 999;
+}
+
+.start-button img {
+    width: 28px;
+    height: 28px;
+    cursor: pointer;
+    transition: transform 0.2s;
+}
+.start-button img:hover {
+    transform: scale(1.1);
+}
+
+.taskbar-links {
+    display: flex;
+    gap: 15px;
+}
+
+.taskbar-icon img {
+    width: 26px;
+    height: 26px;
+    transition: transform 0.1s;
+}
+.taskbar-icon img:hover {
+    transform: translateY(-2px);
+}
+
+
+/* Styling for Font Awesome Icons in Taskbar */
+.taskbar-icon i {
+    font-size: 24px; /* Adjusts icon size */
+    color: #FF8AD8;
+    text-shadow: 0 0 8px #FFE6F6, 0 2px 4px #FF3BC1; 
+    transition: all 0.2s ease-in-out;
+}
+
+/* Hover glow effect */
+.taskbar-icon:hover i {
+    color: #FF3BC1;
+    transform: scale(1.1) translateY(-2px);
+    text-shadow: 0 0 15px #FF3BC1;
+}
+
+.system-tray {
+    color: #4B1F6F;
+    font-size: 0.8rem;
+    text-shadow: 1px 1px 2px rgba(0,0,0,0.5);
+}
+
+/* --- Subpages Windows (Aero Theme Window Wrapper) --- */
+.aero-window {
+    background: rgba(255, 255, 255, 0.2);
+    backdrop-filter: blur(20px) saturate(200%);
+    -webkit-backdrop-filter: blur(20px) saturate(200%);
+    border: 1px solid rgba(255, 255, 255, 0.45);
+    border-radius: 8px 8px 0 0;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+    max-width: 900px;
+    margin: 30px auto;
+    color: #4B1F6F;
+    overflow: hidden;
+    width: 95%;
+}
+
+.window-header {
+    background: linear-gradient(to bottom, rgba(255,255,255,0.4), rgba(255,255,255,0.1));
+    padding: 12px 15px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+.window-title {
+    font-weight: 600;
+    color: #fff;
+    text-shadow: 0 1px 2px #4B1F6F;
+    font-size: 0.9rem;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    max-width: 60%;
+}
+
+.window-body {
+    background: white; 
+    padding: 20px;
+    min-height: 400px;
+}
+
+/* Portfolio Page Grid layouts */
+.gallery-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
+    gap: 15px;
+}
+
+.nail-card {
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    overflow: hidden;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+}
+
+.nail-card img {
+    width: 100%;
+    height: 180px;
+    object-fit: cover;
+    display: block;
+}
+
+.nail-card p {
+    padding: 8px;
+    font-size: 0.9rem;
+    font-weight: 500;
+    text-align: center;
+    background: #f9f9f9;
+}
+
+/* ==========================================================================
+   📱 MOBILE & TABLET OPTIMISATIONS (Media Queries)
+   ========================================================================== */
+
+@media (max-width: 768px) {
+    /* Change desktop shortcut orientation to horizontal at the top */
+    .icon-grid {
+        flex-direction: row;
+        flex-wrap: wrap;
+        justify-content: center;
+        width: 100%;
+        gap: 15px;
+    }
+
+    .desktop-icon {
+        width: 85px;
+        padding: 5px;
+    }
+
+    .desktop-icon img {
+        width: 40px;
+        height: 40px;
+    }
+
+    /* Adjust main background name size so it stays clean */
+    .desktop-title {
+        font-size: 2rem;
+        top: 50%;
+    }
+
+    /* Window expands to fill mobile viewport nicely */
+    .aero-window {
+        width: 100%;
+        margin: 0;
+        border-radius: 0;
+        border-left: none;
+        border-right: none;
+        border-top: none;
+        min-height: calc(100vh - 40px);
+    }
+
+    .window-body {
+        padding: 15px;
+        min-height: calc(100vh - 85px);
+        padding-bottom: 60px; /* Safe zone padding for the bottom bar */
+    }
+
+    /* Scale gallery grid down for narrow screens */
+    .gallery-grid {
+        grid-template-columns: repeat(auto-fill, minmax(140px, 1fr));
+        gap: 10px;
+    }
+
+    .nail-card img {
+        height: 140px;
+    }
+
+    /* Ensure user can read comfortably on mobile */
+    .info-section h3 {
+        font-size: 1.1rem;
+    }
+    
+    .info-section p {
+        font-size: 0.9rem;
+        line-height: 1.4;
+    }
+}
+
+/* Subpage specific background to anchor theme consistency */
+.subpage-bg {
+    background: radial-gradient(circle at 80% 20%, #FFB6FE, #AE92F4, #806EE5);
+    overflow-y: auto;
+    min-height: 100vh;
+    padding: 20px 0;
+}
+
+/* Detailed Explorer Layout Adjustment */
+.detailed-window {
+    max-width: 1000px;
+    margin: 20px auto;
+}
+
+/* Window Navigation Control elements */
+.window-controls {
+    display: flex;
+    gap: 8px;
+}
+
+.win-btn {
+    color: #4B1F6F;
+    text-decoration: none;
+    background: rgba(255, 255, 255, 0.15);
+    padding: 5px 12px;
+    border-radius: 4px;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    font-size: 0.85rem;
+    transition: all 0.2s ease;
+}
+
+.win-btn:hover {
+    background: rgba(255, 255, 255, 0.3);
+    box-shadow: 0 0 8px rgba(255, 255, 255, 0.5);
+}
+
+/* Windows 7 Style Address Bar Blueprint */
+.address-bar {
+    background: linear-gradient(to bottom, #FFE6F6, #FF8AD8);
+    border-bottom: 1px solid #d1d1d1;
+    padding: 6px 15px;
+    font-size: 0.85rem;
+    color: #444;
+}
+
+.breadcrumbs {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+}
+
+.breadcrumb-arrow {
+    font-size: 0.7rem;
+    color: #888;
+}
+
+.current-folder {
+    font-weight: 600;
+    color: #111;
+}
+
+/* Split Column Layout Architecture */
+.split-workspace {
+    display: flex;
+    gap: 20px;
+    border-bottom: 1px solid #e0e0e0;
+}
+
+.main-gallery-zone {
+    flex: 2;
+}
+
+.set-metadata-zone {
+    flex: 1;
+    min-width: 250px;
+}
+
+/* Structural Header Design */
+.section-title {
+    font-size: 1.2rem;
+    font-weight: 500;
+    color: #4B1F6F;
+    margin-bottom: 15px;
+    border-bottom: 1px dashed #d1d1d1;
+    padding-bottom: 5px;
+}
+
+/* Stack Finished Work Images Cleanly */
+.set-main-images.row-layout {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr); /* Forces exactly 3 items per row */
+    gap: 15px; /* Adds clean spacing between windows cells */
+    margin-bottom: 20px;
+}
+
+.set-image-wrapper img {
+    width: 100%;
+    height: 180px; /* Uniform crop height for neat aesthetic uniformity */
+    object-fit: cover;
+    border-radius: 4px;
+    border: 1px solid #ddd;
+    cursor: pointer;
+    transition: transform 0.2s ease;
+}
+
+/* Give images a subtle hover pop effect to hint playability */
+.set-image-wrapper img:hover, .ref-image-card img:hover {
+    transform: scale(1.02);
+    box-shadow: 0 4px 12px #FF8AD8;
+}
+.reference-images-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr); /* Forces all 4 reference images into a row */
+    gap: 15px;
+}
+
+.ref-image-card img {
+    width: 100%;
+    height: 130px; /* Uniform height for reference items */
+    object-fit: cover;
+    border-radius: 4px;
+    border: 1px dashed #cbd5e1;
+    cursor: pointer;
+    transition: transform 0.2s ease;
+}
+.set-image-wrapper img:hover, .ref-image-card img:hover {
+    transform: scale(1.03);
+    box-shadow: 0 4px 12px #FF8AD8;
+}
+
+.lightbox-overlay {
+    display: none; /* Hidden by default */
+    position: fixed;
+    z-index: 10000; /* Stays above taskbars and desktop windows */
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.6);
+    backdrop-filter: blur(5px);
+    align-items: center;
+    justify-content: center;
+}
+
+/* Inner pop-up window styling that looks like a miniature software program */
+.lightbox-window {
+    background: rgba(255, 255, 255, 0.2);
+    backdrop-filter: blur(25px) saturate(200%);
+    border: 1px solid rgba(255, 255, 255, 0.5);
+    border-radius: 8px 8px 4px 4px;
+    box-shadow: 0 20px 50px rgba(0,0,0,0.5);
+    max-width: 85%;
+    max-height: 85%;
+    overflow: hidden;
+    animation: zoomInSubtle 0.25s ease-out;
+}
+
+.lightbox-header {
+    background: linear-gradient(to bottom, rgba(255,255,255,0.4), rgba(255,255,255,0.15));
+    padding: 8px 12px;
+    color: white;
+    font-size: 0.85rem;
+    font-weight: 600;
+    text-shadow: 0 1px 2px rgba(0,0,0,0.5);
+    border-bottom: 1px solid rgba(255,255,255,0.2);
+}
+
+.lightbox-body {
+    background: #111; /* Clean black frame background for contrast */
+    padding: 10px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.lightbox-body img {
+    max-width: 100%;
+    max-height: 70vh;
+    object-fit: contain;
+    border: 1px solid #333;
+}
+
+/* Quick Close indicator button styling */
+.lightbox-close {
+    position: absolute;
+    top: 20px;
+    right: 30px;
+    color: #fff;
+    font-size: 40px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: color 0.2s;
+}
+.lightbox-close:hover {
+    color: #00b4db;
+}
+
+/* Windows 7 Aero fluid window execution script lookalike animation */
+@keyframes zoomInSubtle {
+    from { transform: scale(0.92); opacity: 0; }
+    to { transform: scale(1); opacity: 1; }
+}
+
+/* File Properties Meta Box Layout */
+.meta-card {
+    background: #FFE6F6;
+    border: 1px solid #cbd5e1;
+    border-radius: 6px;
+    padding: 15px;
+    box-shadow: inset 0 0 5px rgba(0,0,0,0.02);
+}
+
+.meta-card h3 {
+    font-size: 0.95rem;
+    margin-bottom: 12px;
+    color: #334155;
+}
+
+.meta-table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 0.88rem;
+}
+
+.meta-table td {
+    padding: 8px 4px;
+    vertical-align: top;
+    line-height: 1.4;
+}
+
+.badge-time {
+    background: #FF8AD8;
+    color: #4B1F6F;
+    padding: 3px 8px;
+    border-radius: 12px;
+    font-weight: 600;
+    font-size: 0.8rem;
+    display: inline-block;
+}
+
+/* Footer Container for Blueprint References */
+.window-body-footer {
+    background: #FFE6F6;
+    padding: 20px;
+}
+
+.reference-title {
+    color: #4B1F6F;
+}
+
+.reference-images-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+    gap: 15px;
+}
+
+.ref-image-card {
+    background: white;
+    border: 1px dashed #cbd5e1;
+    padding: 8px;
+    border-radius: 4px;
+    text-align: center;
+}
+
+.ref-image-card img {
+    width: 100%;
+    height: 110px;
+    object-fit: cover;
+    border-radius: 2px;
+}
+
+.ref-image-card p {
+    font-size: 0.75rem;
+    color: #64748b;
+    margin-top: 6px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+/* --- Responsive Fluid Mobile Adapters --- */
+@media (max-width: 768px) {
+    /* Stacks elements smoothly or shrinks grids on mobile views */
+    .set-main-images.row-layout {
+        grid-template-columns: repeat(auto-fill, minmax(100px, 1fr));
+        gap: 8px;
+    }
+    .set-image-wrapper img {
+        height: 110px;
+    }
+    
+    .reference-images-grid {
+        grid-template-columns: repeat(2, 1fr); /* 2x2 block matrix for phone displays */
+        gap: 10px;
+    }
+    .ref-image-card img {
+        height: 100px;
+    }
+}

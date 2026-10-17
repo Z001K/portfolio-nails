@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nail Portfolio </title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.2/css/all.css">
+    
+</head>
+<body>
+
+    <!-- Desktop Environment -->
+    <div class="desktop">
+        
+        <!-- Desktop Brand/Name in the Middle -->
+        <h1 class="desktop-title">Dizzaar</h1>
+
+        <!-- Desktop Grid Icons -->
+        <div class="icon-grid">
+            <a href="portfolio.html" class="desktop-icon">
+                <img src="Images/Icon-Pics.png" alt="Nail Gallery">
+                <span>Nail Gallery</span>
+            </a>
+            
+            <a href="info.html" class="desktop-icon">
+                <img src="Images/Icon-Info.png" alt="Information">
+                <span>Information</span>
+            </a>
+            <a href="sizing.html" class="desktop-icon">
+                <img src="Images/Icon-Sizing.png" alt="Sizing">
+                <span>Sizing</span>
+            </a>
+            <a href="https://instagram.com/_dizzaar" target="_blank" class="desktop-icon">
+                <img src="Images/Icon-Socials.png" alt="Social Media">
+                <span>Socials</span>
+            </a>
+        </div>
+
+    </div>
+
+    <!-- Windows 7 Style Taskbar -->
+    <div class="taskbar">
+        <div class="start-button">
+            <img src="Images/Icon-Start.png" alt="Start"> <!-- Switch to a custom sphere logo if preferred -->
+        </div>
+        
+        <!-- Social Links Container at the Bottom -->
+        
+        <div class="system-tray">
+            <span id="clock">12:00 PM</span>
+        </div>
+    </div>
+
+    <script>
+        // Simple functional clock for authenticity
+        function updateClock() {
+            const now = new Date();
+            document.getElementById('clock').innerText = now.toLocaleTimeString([], {hour: '2-digit', minute:'2-digit'});
+        }
+        setInterval(updateClock, 1000);
+        updateClock();
+    </script>
+</body>
+</html>

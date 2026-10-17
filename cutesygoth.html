@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cutesy Goth - Gallery</title>
+    <!-- Link to your main styling sheet -->
+    <link rel="stylesheet" href="styles.css">
+    <!-- Font Awesome for navigation breadcrumb icons -->
+    <link rel="stylesheet" href="https://fontawesome.com">
+</head>
+<body class="subpage-bg">
+
+    <!-- Aero Style Explorer Window -->
+    <div class="aero-window detailed-window">
+        
+        <!-- Windows Title Bar & Control Buttons -->
+        <div class="window-header">
+            <span class="window-title">Windows Photo Viewer - Cutesy Goth Set</span>
+            <div class="window-controls">
+                <a href="portfolio.html" class="win-btn" title="Back to Gallery">Back<i class="fas fa-arrow-left"></i></a>
+                <a href="index.html" class="win-btn" title="Go to Desktop">Desktop<i class="fas fa-desktop"></i></a>
+            </div>
+        </div>
+
+        <!-- Navigation Breadcrumb Bar (Pure Win7 Aesthetic) -->
+        <div class="address-bar">
+            <div class="breadcrumbs">
+                <span><i class="fas fa-desktop"></i> Desktop</span>
+                <i class="fas fa-chevron-right breadcrumb-arrow"></i>
+                <span> > Gallery</span>
+                <i class="fas fa-chevron-right breadcrumb-arrow"></i>
+                <span class="current-folder"> > Cutesy Goth set</span>
+            </div>
+        </div>
+
+        <!-- Main Window Workspace -->
+        <div class="window-body split-workspace">
+            
+            <!-- LEFT ZONE: Actual Custom Set Images -->
+            <div class="main-gallery-zone">
+                <h2 class="section-title"><i class="far fa-images"></i> Finished Work</h2>
+                <div class="set-main-images row-layout">
+                    <!-- Replace with real images of your finished work -->
+                    <div class="set-image-wrapper">
+                        <img src="Nails/CG-1.jpg" alt="Finished Set Angle 1" class="zoomable-img" onclick="openLightbox(this)">
+                    </div>
+                    <div class="set-image-wrapper">
+                        <img src="Nails/CG-3.jpg" alt="Finished Set Angle 2" class="zoomable-img" onclick="openLightbox(this)">
+                    </div>
+                    <div class="set-image-wrapper">
+                        <img src="Nails/CG-4.jpg" alt="Finished Set Angle 2" class="zoomable-img" onclick="openLightbox(this)">
+                    </div>
+                </div>
+            </div>
+
+            <!-- RIGHT ZONE: Set Blueprint Specifications -->
+            <aside class="set-metadata-zone">
+                <div class="meta-card">
+                    <h3><i class="fas fa-info-circle"></i> File Properties</h3>
+                    <table class="meta-table">
+                        <tr>
+                            <td><strong>Description:</strong></td>
+                            <td>Hand-painted cutesy goth set, featuring a pink theme throughout. Gel top and bottom coat, paiting done with Essence nail polish. </td>
+                        </tr>
+                        <tr>
+                            <td><strong>Time Taken:</strong></td>
+                            <td><span class="badge-time"><i class="far fa-clock"></i> 4.7 Hours</span></td>
+                        </tr>
+                        <tr>
+                            <td><strong>Shape/Length:</strong></td>
+                            <td>Small Coffins</td>
+                        </tr>
+                    </table>
+                </div>
+            </aside>
+
+        </div>
+
+        <!-- LOWER ZONE: Original Blueprint References -->
+        <div class="window-body-footer">
+            <h3 class="section-title reference-title"><i class="fas fa-paperclip"></i> Reference / Inspiration</h3>
+            <div class="reference-images-grid">
+                <!-- Replace with client references or inspiration pictures -->
+                <div class="ref-image-card">
+                    <img src="Nails/CGInspo-1.jpg" alt="Inspiration Source 1" onclick="openLightbox(this)">
+                </div>
+                <div class="ref-image-card">
+                    <img src="Nails/CGInspo-2.jpg" alt="Inspiration Source 2">
+                </div>
+                <div class="ref-image-card">
+                    <img src="Nails/CGInspo-3.jpg" alt="Inspiration Source 3" onclick="openLightbox(this)">
+                </div>
+                <div class="ref-image-card">
+                    <img src="Nails/CGInspo-4.jpg" alt="Inspiration Source 4" onclick="openLightbox(this)">
+                </div>
+            </div>
+        </div>
+
+    </div>
+    <div id="imageLightbox" class="lightbox-overlay" onclick="closeLightbox()">
+    <span class="lightbox-close">&times;</span>
+        <div class="lightbox-window">
+            <div class="lightbox-header">
+                <span id="lightboxTitle">Windows Picture Viewer</span>
+            </div>
+            <div class="lightbox-body">
+                <img id="lightboxImg" src="" alt="Popup Preview">
+            </div>
+        </div>
+    </div>
+    <script>
+        // Modal UI Engine Functions
+        function openLightbox(element) {
+            const lightbox = document.getElementById("imageLightbox");
+            const lightboxImg = document.getElementById("lightboxImg");
+            const lightboxTitle = document.getElementById("lightboxTitle");
+            
+            // Sync values from clicked item directly to the previewer engine
+            lightboxImg.src = element.src;
+            lightboxTitle.innerText = "Windows Photo Viewer - " + (element.alt || "Portfolio Image");
+            
+            // Display container system using dynamic layout parameters
+            lightbox.style.display = "flex";
+        }
+
+        function closeLightbox() {
+            // Dismiss container block from viewport view safe pathing
+            document.getElementById("imageLightbox").style.display = "none";
+        }
+    </script>
+
+</body>
+</html>
