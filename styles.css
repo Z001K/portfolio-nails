@@ -585,6 +585,43 @@ body, html {
     overflow: hidden;
     text-overflow: ellipsis;
 }
+/*Newly added table for sizing*/
+.table-container {
+    width: 100%;
+    overflow-x: auto; /* Enables horizontal scrolling if the table gets too wide */
+    -webkit-overflow-scrolling: touch; /* Smooth scrolling on iOS devices */
+    margin-top: 15px;
+}
+table {
+    width: 100%;
+    min-width: 450px; /* Forces a minimum workable size so data never squishes down to single letters */
+    border-collapse: collapse;
+    background-color: rgba(255, 255, 255, 0.2);
+    border-radius: 8px;
+    overflow: hidden;
+}
+th, td {
+    padding: 10px;
+    text-align: center;
+    border: 1px solid rgba(75, 31, 111, 0.3);
+    color: #4B1F6F;
+}
+th {
+    background-color: rgba(198, 134, 221, 0.4);
+    font-weight: bold;
+}
+
+tbody td:nth-child(1),
+tbody td:nth-child(2) {
+    background-color: rgba(174, 146, 244, 0.25); /* Light transparent purple */
+}
+tbody td:nth-child(3),
+tbody td:nth-child(4) {
+    background-color: rgba(255, 182, 254, 0.25); /* Light transparent pink */
+}
+tbody tr:hover td {
+    background-color: rgba(255, 255, 255, 0.4);
+}
 
 /* --- Responsive Fluid Mobile Adapters --- */
 @media (max-width: 768px) {
