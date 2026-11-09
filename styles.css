@@ -524,18 +524,33 @@ body, html {
     color: #334155;
 }
 
-.meta-table {
-    width: 100%;
-    border-collapse: collapse;
+/* Replaces the table with a flexible layout container */
+.meta-info-list {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
     font-size: 0.88rem;
 }
 
-.meta-table td {
-    padding: 8px 4px;
-    vertical-align: top;
+.meta-row {
+    display: flex;
+    align-items: flex-start;
+    gap: 8px;
     line-height: 1.4;
 }
 
+.meta-label {
+    font-weight: 600;
+    color: #334155;
+    min-width: 105px; /* Keeps labels aligned */
+    flex-shrink: 0;
+}
+
+.meta-value {
+    color: #4B1F6F;
+    word-break: break-word;
+    flex: 1;
+}
 .badge-time {
     background: #FF8AD8;
     color: #4B1F6F;
